@@ -2,6 +2,9 @@ import numpy as np
 from utils.read_csv import read_csv
 from utils.canvas import Canvas
 from utils.generate_csv import generate_csv
+from lagrange import lagrange_interpolation 
+from lagrange100 import lagrange_interpolation100
+
 """
   Implementa la funcion de Interpolacion de lagrange paga generar un nuevo dataset
   a partir de los valores de x e y leidos del archivo csv
@@ -17,12 +20,24 @@ from utils.generate_csv import generate_csv
   la grafica se genere correctamente
 
 """
+
+
+#Utiliza todos los puntos
+
 def generate_dataset(x_values, y_values):
-  #-------------------- INSERTE IMPLEMENTACION AQUI ------------------#
+    new_x = np.linspace(0, 100, 50)
+    new_x, new_y = lagrange_interpolation100(x_values, y_values, new_x)
+    return new_x, new_y
 
 
-  return [], [] # nuevo dataset, con valores de x e y
-  #-------------------- INSERTE IMPLEMENTACION AQUI ------------------#
+
+
+ # lagrange (interpola en tramos de 5 o 6 puntos)
+ 
+#def generate_dataset(x_values, y_values):
+ #   new_x = np.linspace(0, 100, 50)
+  #  new_y = lagrange_interpolation(x_values, y_values, new_x, window_size=5)
+   # return new_x, new_y
 
 
 def main():
